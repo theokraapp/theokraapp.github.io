@@ -39,6 +39,32 @@
  * Copyright (c) 2019 Daniel Eden
  */
 
+ /*
+  * CUSTOM STYLES START
+ */
+
+ .store-buttons {
+   display: flex;
+   justify-content: flex-start;
+   gap: 4px;
+ }
+
+ @media (max-width: 768px) {
+   .store-buttons {
+     justify-content: center;
+   }
+ }
+
+ .store-badge {
+   height: 48px;
+   width: 160px;
+   object-fit: contain;
+ }
+
+  /*
+   * CUSTOM STYLES END
+  */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
