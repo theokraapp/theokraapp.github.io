@@ -5,7 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Okra App | Scan Food Labels & Get Instant Health Scores</title>
-  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
+  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet">
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+      import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDTrKGz6Dz1DxHn3m2w1g2jhXYEaYTocUA",
+        authDomain: "okra-2de5d.firebaseapp.com",
+        projectId: "okra-2de5d",
+        storageBucket: "okra-2de5d.firebasestorage.app",
+        messagingSenderId: "851991189923",
+        appId: "1:851991189923:web:dd00b6972ccfcb2dc2a216",
+        measurementId: "G-57NMKBJN2J"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      // Track all <a> links with a data-event attribute
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("a[data-event]").forEach(link => {
+          link.addEventListener("click", () => {
+            const eventName = link.getAttribute("data-event");
+            logEvent(analytics, eventName, {});
+    });
+  });
+      });
+    </script>
+  </head>
   <body class="tf gk">
     <!-- ======= Header Start ======= -->
     <header
@@ -138,10 +172,10 @@
                 </p>
 
               <div class="store-buttons">
-                <a href="https://apps.apple.com/us/app/okra-food-nutrition-scanner/id6744419017" target="_blank">
+                <a href="https://apps.apple.com/us/app/okra-food-nutrition-scanner/id6744419017" target="_blank" data-event="appstore_icon_click">
                   <img src="images/cta/appstore-icon.svg" alt="Download on the App Store" class="store-badge" />
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.azenlabs.okra" target="_blank">
+                <a href="https://play.google.com/store/apps/details?id=com.azenlabs.okra" target="_blank" data-event="playstore_icon_click">
                   <img src="images/cta/playstore-icon.svg" alt="Get it on Google Play" class="store-badge" />
                 </a>
               </div>
@@ -955,7 +989,7 @@
                     class="oa bc je le ne un"
                   >
                     <div class="_b vg">
-                      <a href="https://apps.apple.com/us/app/okra-food-nutrition-scanner/id6744419017" target="_blank">
+                      <a href="https://apps.apple.com/us/app/okra-food-nutrition-scanner/id6744419017" target="_blank" data-event="appstore_icon_click">
                         <img src="images/cta/appstore-icon.svg" alt="Download on the App Store" class="store-badge" />
                       </a>
                     </div>
@@ -963,7 +997,7 @@
                     <br />
                     <br />
                     <div class="_b vg">
-                      <a href="https://play.google.com/store/apps/details?id=com.azenlabs.okra" target="_blank">
+                      <a href="https://play.google.com/store/apps/details?id=com.azenlabs.okra" target="_blank" data-event="playstore_icon_click">
                         <img src="images/cta/playstore-icon.svg" alt="Get it on Google Play" class="store-badge" />
                       </a>
                     </div>
